@@ -1,0 +1,13 @@
+import java.util.*;
+public class FindDuplicates {
+    public static List<Integer> findDuplicates(int[] nums) {
+        List<Integer> duplicates = new ArrayList<>();
+        Map<Integer, Integer> freq = new HashMap<>();
+        for (int num : nums) freq.put(num, freq.getOrDefault(num, 0) + 1);
+        for (var e : freq.entrySet()) if (e.getValue() > 1) duplicates.add(e.getKey());
+        return duplicates;
+    }
+    public static void main(String[] args) {
+        System.out.println(findDuplicates(new int[]{1, 2, 3, 2, 4, 5, 1}));
+    }
+}
